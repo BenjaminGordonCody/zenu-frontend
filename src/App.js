@@ -5,7 +5,7 @@ import { Entrance } from "./components/Entrance";
 
 function App() {
   //states
-  const [page, setPage] = useState("entrance");
+  const [page, setPage] = useState("welcome");
   const [user, setUser] = useState(false);
 
   //based on what page variable is, the main App component loads other pages
@@ -13,7 +13,7 @@ function App() {
   // navigation will work.
 
   if (!user) {
-    return <Entrance props={{ setPage, user, setUser }} />;
+    return <Entrance page={setPage} user={user} setUser={setUser} />;
   } else if (page == "welcome") {
     return <div>welcome</div>;
   } else {

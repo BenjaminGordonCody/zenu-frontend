@@ -4,6 +4,7 @@ export const fetchRequestSignUp = async (
   email,
   password
 ) => {
+  console.log(setUser);
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
       method: "POST",

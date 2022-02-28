@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Login } from "./LogIn";
 import { SignUp } from "./Signup";
 
-export const Entrance = ({ setPage, user, setUser }) => {
+export const Entrance = ({ setPage, setUser }) => {
   //states
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -12,10 +12,20 @@ export const Entrance = ({ setPage, user, setUser }) => {
     <div id="entrance" className="page">
       <h1>ENTRANCE</h1>
       <Login
-        props={(username, setUsername, password, setPassword, user, setUser)}
+        username={username}
+        setUsername={setUsername}
+        password={password}
+        setPassword={setPassword}
+        setUser={setUser}
       />
       <SignUp
-        props={(email, setEmail, username, setUsername, password, setPassword)}
+        email={email}
+        setEmail={setEmail}
+        username={username}
+        setUsername={setUsername}
+        password={password}
+        setPassword={setPassword}
+        setUser={setUser}
       />
     </div>
   );
