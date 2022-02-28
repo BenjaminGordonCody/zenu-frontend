@@ -23,7 +23,7 @@ export const fetchRequestSignUp = async (
 };
 
 export const fetchRequestLogIn = async (setUser, username, password) => {
-  console.log(username);
+  console.log(username, password);
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
       method: "POST",
