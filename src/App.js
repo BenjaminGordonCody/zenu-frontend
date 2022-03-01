@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 import { Entrance } from "./components/Entrance";
@@ -14,7 +13,7 @@ function App() {
 
   if (!user) {
     return <Entrance page={setPage} user={user} setUser={setUser} />;
-  } else if (page == "welcome") {
+  } else if (page === "welcome") {
     return <div>welcome</div>;
   } else {
     return <div> There has been an error with page routing</div>;

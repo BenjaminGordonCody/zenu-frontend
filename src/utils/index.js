@@ -4,7 +4,7 @@ export const fetchRequestSignUp = async (
   email,
   password
 ) => {
-  console.log(setUser);
+  console.log(`${process.env.REACT_APP_REST_API}user`);
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
       method: "POST",
@@ -57,13 +57,6 @@ export const fetchRequestDeleteUser = async (user, setUser) => {
   } catch (error) {
     console.log(error.message);
   }
-};
-export const fetchPicsum = async (num, setPicArr) => {
-  const response = await fetch(
-    `https://picsum.photos/v2/list?page=${num}&limit=15`
-  );
-  const data = await response.json();
-  setPicArr(data);
 };
 
 export const submitSignUpHandler = (e, setUser, username, email, password) => {
