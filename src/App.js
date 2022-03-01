@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { Entrance } from "./components/Entrance";
+import { Welcome } from "./components/Welcome";
 
 function App() {
   //states
@@ -14,7 +15,7 @@ function App() {
   if (!user.hasOwnProperty("username")) {
     return <Entrance page={setPage} user={user} setUser={setUser} />;
   } else if (page === "welcome") {
-    return <div>welcome</div>;
+    return <Welcome setPage={setPage} user={user} />;
   } else {
     return <div> There has been an error with page routing</div>;
   }
