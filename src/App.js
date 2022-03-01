@@ -11,7 +11,7 @@ function App() {
   // as sub-components. Each page recieves "setPage" as a prop so that
   // navigation will work.
 
-  if (!user) {
+  if (!user.hasOwnProperty("username")) {
     return <Entrance page={setPage} user={user} setUser={setUser} />;
   } else if (page === "welcome") {
     return <div>welcome</div>;
