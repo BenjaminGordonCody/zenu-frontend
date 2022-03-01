@@ -1,4 +1,4 @@
-export const taskDescriptions = {
+const taskDescriptions = {
   water: {
     string: "Drink your water!",
     emoji: "🚰",
@@ -12,3 +12,5 @@ export const taskDescriptions = {
     emoji: "🦈",
   },
 };
+
+module.exports = taskDescriptions;
