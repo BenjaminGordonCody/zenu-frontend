@@ -65,6 +65,5 @@ export const submitSignUpHandler = (e, setUser, username, email, password) => {
 
 export const submitLogInHandler = (e, setUser, username, password) => {
   e.preventDefault();
-  console.log(setUser, username, password);
   fetchRequestLogIn(setUser, username, password);
 };
