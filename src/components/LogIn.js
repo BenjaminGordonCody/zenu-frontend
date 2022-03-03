@@ -21,7 +21,7 @@ export const Login = ({
         <Input setter={setUsername} />
         Password:
         <Input setter={setPassword} />
-        <button type="submit">sign up</button>
+        <button type="submit">Log in</button>
       </form>
     );
   } catch (e) {

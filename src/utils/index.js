@@ -6,6 +6,7 @@ export const fetchRequestSignUp = async (
 ) => {
   console.log(`${process.env.REACT_APP_REST_API}user`);
   try {
+    const taskTally = "{}";
     const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -13,6 +14,7 @@ export const fetchRequestSignUp = async (
         username,
         email,
         password,
+        taskTally,
       }),
     });
     const data = await response.json();
