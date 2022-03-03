@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { fetchRequestUpdateTaskTally } from "../utils";
 import { Task } from "./Task";
 const taskDescriptions = require("../allTasks");
 
@@ -37,7 +38,7 @@ export const Dashboard = ({ user, setPage }) => {
     });
     console.log(newTaskRecord);
 
-    // THIS IS WHERE TO ADD THE LINK TO THE DATABASE, PUT FUNC IN UTILS
+    fetchRequestUpdateTaskTally(user.username, newTaskRecord);
   };
 
   return (

@@ -61,6 +61,12 @@ export const fetchRequestDeleteUser = async (user, setUser) => {
   }
 };
 
+export const fetchRequestUpdateTaskTally = (username, newTaskTally) => {
+  console.log(
+    `This text is a stand-in for updating ${username}'s db document with the following object:`
+  );
+  console.log(newTaskTally);
+};
 export const submitSignUpHandler = (e, setUser, username, email, password) => {
   e.preventDefault();
   fetchRequestSignUp(setUser, username, email, password);
