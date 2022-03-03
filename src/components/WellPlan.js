@@ -1,11 +1,15 @@
 import React from 'react';
-const taskDescriptions = require()
+const taskDescriptions = require('../allTasks/index');
 
 
 export const WellnessPlan = () => {
-    const basket =() => {
-alert("Added to your plan!")
-    }
+    
+    const handleClick = e => {
+        //alert("Added to your plan!")
+        console.log(e.key.value)
+        }
+    
+    
 
     return(
         <section>
@@ -13,12 +17,23 @@ alert("Added to your plan!")
                 <h1>Wellbeing Ideas</h1>
                 <p classname="list">
                 {Object.keys(taskDescriptions).map((task, index) => {
-        return <button onClick = {basket}> {taskDescriptions[task]["string"]} </button>;
+                    
+        return <button onClick={handleClick}> {taskDescriptions[task]["string"]} </button>;
       })}
+                </p>
+            </div>
+            <div className="picked">
+                
+                    <h2>Activities</h2>
+                    <p>
 
+                   
+                    {Object.keys(taskDescription)}
+                    
                 </p>
             </div>
         </section>
     );
-}
+
+    }
 
