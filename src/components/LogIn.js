@@ -1,21 +1,30 @@
 import { Input } from "./Input";
 import { submitLogInHandler } from "../utils";
 
-export const Login = ({ p }) => {
-  //p does recieve state values
-  return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        submitLogInHandler(e, p.setUser, p.username, p.password);
-      }}
-    >
-      <h1>Log In!</h1>
-      Username:
-      <Input setter={p.setUsername} />
-      Password:
-      <Input setter={p.setPassword} />
-      <button type="submit">sign up</button>
-    </form>
-  );
+export const Login = ({
+  setUser,
+  setUsername,
+  username,
+  password,
+  setPassword,
+}) => {
+  try {
+    return (
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          submitLogInHandler(e, setUser, username, password);
+        }}
+      >
+        <h1>Log In!</h1>
+        Username:
+        <Input setter={setUsername} />
+        Password:
+        <Input setter={setPassword} />
+        <button type="submit">sign up</button>
+      </form>
+    );
+  } catch (e) {
+    console.log(e.message);
+  }
 };
