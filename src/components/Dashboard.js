@@ -36,8 +36,6 @@ export const Dashboard = ({ user, setPage }) => {
         newTaskRecord[task] = 1;
       }
     });
-    console.log(newTaskRecord);
-
     fetchRequestUpdateTaskTally(user.username, newTaskRecord);
   };
 

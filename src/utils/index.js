@@ -61,11 +61,19 @@ export const fetchRequestDeleteUser = async (user, setUser) => {
   }
 };
 
-export const fetchRequestUpdateTaskTally = (username, newTaskTally) => {
-  console.log(
-    `This text is a stand-in for updating ${username}'s db document with the following object:`
-  );
-  console.log(newTaskTally);
+export const fetchRequestUpdateTaskTally = async (username, newTaskTally) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_REST_API}tally`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: username, newTaskTally }),
+    });
+    console.log(response);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log("fetchRequestUpdateTaskTally", error.message);
+  }
 };
 export const submitSignUpHandler = (e, setUser, username, email, password) => {
   e.preventDefault();
