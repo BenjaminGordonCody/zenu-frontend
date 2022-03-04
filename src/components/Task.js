@@ -1,24 +1,23 @@
 import { useState } from "react";
 
-export const Task = ({
-  task,
-  index,
-  dailyTaskRecord,
-  updateDailyTaskRecord,
-  taskTag,
-}) => {
+export const Task = ({ task, index, updateDailyTaskRecord, taskTag }) => {
   const [taskCompletion, setTaskCompletion] = useState(false);
+
   return (
     <div className="task" key={index}>
-      <div
-        className={"bigEmoji" + taskCompletion}
+      <button
+        className={"taskButton-" + taskCompletion}
         onClick={() => {
-          setTaskCompletion(!taskCompletion); //component's state, for styling
-          updateDailyTaskRecord(taskTag, taskCompletion);
+          console.log("taskCompletion before", taskCompletion);
+          const newVal = taskCompletion ? false : true;
+          console.log("newval", newVal);
+          setTaskCompletion(newVal); //component's state, for styling
+          console.log("taskCompletion after", taskCompletion);
+          updateDailyTaskRecord(taskTag, newVal);
         }}
       >
         {task.emoji}
-      </div>
+      </button>
       <div className="taskDescription">{task.string}</div>
     </div>
   );

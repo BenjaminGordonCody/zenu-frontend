@@ -42,3 +42,7 @@
     transform: rotate(360deg);
   }
 }
+
+.taskButton-true {
+  background-color: red;
+}
