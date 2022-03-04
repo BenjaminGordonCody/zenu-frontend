@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Entrance } from "./components/Entrance";
 import { Welcome } from "./components/Welcome";
 import { Dashboard } from "./components/Dashboard";
-import DiaryForm from "../../Diary/src/form/DiaryForm";
+import DiaryForm from "./components/form/DiaryForm";
 
 function App() {
 
