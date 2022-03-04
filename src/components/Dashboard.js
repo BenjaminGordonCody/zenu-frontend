@@ -12,30 +12,42 @@ const blankDailyTaskRecord = () => {
 };
 
 export const Dashboard = ({ user, setPage, setUser }) => {
+  console.log("in props", user.taskTally);
+  console.log("jsonparse", JSON.parse(user.taskTally));
+  const jsonparse = JSON.parse(user.taskTally);
+  console.log("jsonparse var", jsonparse);
+
   //states
   const [dailyTaskRecord, setDailyTaskRecord] = useState(
-    blankDailyTaskRecord()
+    blankDailyTasksRecord()
   );
-  const [totalTaskRecord, setTotalTaskRecord] = useState(
-    JSON.parse(user.taskTally)
-  );
+  const [totalTaskRecord, setTotalTaskRecord] = useState(jsonparse);
+
+  console.log("ttr", totalTaskRecord);
 
   //update utils
   const updateDailyTaskRecord = (key, value) => {
+    console.log("updateDailyTaskRecord recieves", key, value);
     const temp = { ...dailyTaskRecord };
+    console.log("temp obj", temp);
     temp[key] = value;
+    console.log("updated temp obj", temp);
     setDailyTaskRecord(temp);
   };
 
   const newTaskRecordForDatabase = () => {
     let newTaskRecord = { ...totalTaskRecord };
+    console.log("totalTaskRecord", totalTaskRecord);
     Object.keys(dailyTaskRecord).forEach((task) => {
       if (dailyTaskRecord[task] && newTaskRecord.hasOwnProperty(task)) {
         newTaskRecord[task] += 1;
       } else if (dailyTaskRecord[task]) {
         newTaskRecord[task] = 1;
+      } else {
       }
     });
+    console.log("totalTaskRecord", totalTaskRecord);
+    console.log("sent to FetchRequest", newTaskRecord);
     fetchRequestUpdateTaskTally(user.username, newTaskRecord, setUser);
   };
 
