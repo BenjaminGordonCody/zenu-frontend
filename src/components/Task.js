@@ -10,7 +10,7 @@ export const Task = ({
   const [taskCompletion, setTaskCompletion] = useState(false);
   return (
     <div className="task" key={index}>
-      <div
+      <button
         className={"bigEmoji" + taskCompletion}
         onClick={() => {
           setTaskCompletion(!taskCompletion); //component's state, for styling
@@ -18,7 +18,7 @@ export const Task = ({
         }}
       >
         {task.emoji}
-      </div>
+      </button>
       <div className="taskDescription">{task.string}</div>
     </div>
   );
