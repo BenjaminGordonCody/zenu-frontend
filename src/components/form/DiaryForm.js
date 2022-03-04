@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function DiaryForm({ addItem }) {
+export default function DiaryForm() {
   const [title, setTitle] = useState("")
   const [date, setDate] = useState("")
   const [text, setText] = useState("")
@@ -12,7 +12,7 @@ export default function DiaryForm({ addItem }) {
       date: date,
       text: text
     }
-    addItem(itemObject)
+    // addItem(itemObject)
     setTitle("")
     setText("")
     setDate("")
