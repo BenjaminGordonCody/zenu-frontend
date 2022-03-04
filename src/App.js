@@ -6,6 +6,7 @@ import { Dashboard } from "./components/Dashboard";
 import DiaryForm from "../../Diary/src/form/DiaryForm";
 
 function App() {
+
   //states
   const [page, setPage] = useState("welcome");
   const [user, setUser] = useState(false);
@@ -22,6 +23,7 @@ function App() {
     return <Dashboard setPage={setPage} user={user} />;
   } else if (page === "diary") {
     return <DiaryForm setPage={setPage} user={user} />;
+
   } else {
     return <div> There has been an error with page routing</div>;
   }
