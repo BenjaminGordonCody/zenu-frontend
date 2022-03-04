@@ -5,6 +5,7 @@ import { Welcome } from "./components/Welcome";
 import { Dashboard } from "./components/Dashboard";
 
 function App() {
+
   //states
   const [page, setPage] = useState("welcome");
   const [user, setUser] = useState(false);
