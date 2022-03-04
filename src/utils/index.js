@@ -61,16 +61,20 @@ export const fetchRequestDeleteUser = async (user, setUser) => {
   }
 };
 
-export const fetchRequestUpdateTaskTally = async (username, newTaskTally) => {
+export const fetchRequestUpdateTaskTally = async (
+  username,
+  newTaskTally,
+  setUser
+) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}tally`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: username, newTaskTally }),
     });
-    console.log(response);
     const data = await response.json();
-    console.log(data);
+    console.log("sent to set User", data.updatedUser);
+    setUser(data.updatedUser);
   } catch (error) {
     console.log("fetchRequestUpdateTaskTally", error.message);
   }

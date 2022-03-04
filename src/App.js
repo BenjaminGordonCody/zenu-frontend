@@ -18,7 +18,7 @@ function App() {
   } else if (page === "welcome") {
     return <Welcome setPage={setPage} user={user} />;
   } else if (page === "dashboard") {
-    return <Dashboard setPage={setPage} user={user} />;
+    return <Dashboard setPage={setPage} user={user} setUser={setUser} />;
   } else {
     return <div> There has been an error with page routing</div>;
   }

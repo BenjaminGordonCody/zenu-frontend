@@ -11,7 +11,7 @@ const blankDailyTaskRecord = () => {
   return tempObj;
 };
 
-export const Dashboard = ({ user, setPage }) => {
+export const Dashboard = ({ user, setPage, setUser }) => {
   //states
   const [dailyTaskRecord, setDailyTaskRecord] = useState(
     blankDailyTaskRecord()
@@ -36,7 +36,7 @@ export const Dashboard = ({ user, setPage }) => {
         newTaskRecord[task] = 1;
       }
     });
-    fetchRequestUpdateTaskTally(user.username, newTaskRecord);
+    fetchRequestUpdateTaskTally(user.username, newTaskRecord, setUser);
   };
 
   return (
