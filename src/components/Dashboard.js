@@ -14,14 +14,12 @@ const blankDailyTasksRecord = () => {
 export const Dashboard = ({ user, setPage, setUser }) => {
   console.log("in props", user.taskTally);
   console.log("jsonparse", JSON.parse(user.taskTally));
-  const jsonparse = JSON.parse(user.taskTally);
-  console.log("jsonparse var", jsonparse);
+  let totalTaskRecord = JSON.parse(user.taskTally);
 
   //states
   const [dailyTaskRecord, setDailyTaskRecord] = useState(
-    blankDailyTasksRecord()
+    blankDailyTaskRecord()
   );
-  const [totalTaskRecord, setTotalTaskRecord] = useState(jsonparse);
 
   console.log("ttr", totalTaskRecord);
 
