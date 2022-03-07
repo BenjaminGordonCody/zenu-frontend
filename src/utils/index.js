@@ -70,3 +70,19 @@ export const submitLogInHandler = (e, setUser, username, password) => {
   e.preventDefault();
   fetchRequestLogIn(setUser, username, password);
 };
+
+export const fetchRequestAddJournalEntry = async (
+  journalObj,
+) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_REST_API}journal`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: journalObj,
+    });
+    const data = await response.json();
+    console.log(data)
+  } catch (error) {
+    console.log(error);
+  }
+};
