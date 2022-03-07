@@ -3,7 +3,7 @@ import { fetchRequestUpdateTaskTally } from "../utils";
 import { Task } from "./Task";
 const taskDescriptions = require("../allTasks");
 
-const blankDailyTaskRecord = () => {
+const blankDailyTasksRecord = () => {
   let tempObj = {};
   Object.keys(taskDescriptions).forEach((task) => {
     tempObj[task] = false;
