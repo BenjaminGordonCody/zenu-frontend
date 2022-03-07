@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { fetchRequestUpdateTaskTally } from "../utils";
 import { Task } from "./Task";
+import { Tally } from "./TaskTally";
 const taskDescriptions = require("../allTasks");
 
 const blankDailyTasksRecord = () => {
@@ -18,7 +19,7 @@ export const Dashboard = ({ user, setPage, setUser }) => {
 
   //states
   const [dailyTaskRecord, setDailyTaskRecord] = useState(
-    blankDailyTaskRecord()
+    blankDailyTasksRecord()
   );
 
   console.log("ttr", totalTaskRecord);
@@ -67,7 +68,9 @@ export const Dashboard = ({ user, setPage, setUser }) => {
           );
         })}
       </div>
-      <div id="dashboardTallyContainer"></div>
+      <div id="dashboardTallyContainer">
+        <Tally user={user} />
+      </div>
     </div>
   );
 };
