@@ -1,3 +1,5 @@
+import Theme from "./Theme";
+
 export const Settings = ({ setUser }) => {
   return (
     <div className="page" id="settings">
@@ -10,6 +12,7 @@ export const Settings = ({ setUser }) => {
       >
         Log Out
       </button>
+      <Theme />
     </div>
   );
 };
