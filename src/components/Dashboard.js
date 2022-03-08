@@ -51,7 +51,7 @@ export const Dashboard = ({ user, setPage, setUser, stylesheet }) => {
   };
 
   return (
-    <div id="dashboard" className="page">
+    <div id="dashboard" style={stylesheet.page}>
       <div id="dashboardTaskContainer">
         <button id="submitDailyTasks" onClick={newTaskRecordForDatabase}>
           submit

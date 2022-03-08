@@ -26,15 +26,31 @@ function App() {
   if (!user.hasOwnProperty("username")) {
     return <Entrance page={setPage} user={user} setUser={setUser} />;
   } else if (page === "welcome") {
-    returnedPage = <Welcome setPage={setPage} user={user} />;
+    returnedPage = (
+      <Welcome setPage={setPage} user={user} stylesheet={stylesheet} />
+    );
   } else if (page === "dashboard") {
     returnedPage = (
-      <Dashboard setPage={setPage} user={user} setUser={setUser} />
+      <Dashboard
+        setPage={setPage}
+        user={user}
+        setUser={setUser}
+        stylesheet={stylesheet}
+      />
     );
   } else if (page === "diary") {
-    returnedPage = <DiaryForm setPage={setPage} user={user} />;
+    returnedPage = (
+      <DiaryForm setPage={setPage} user={user} stylesheet={stylesheet} />
+    );
   } else if (page === "settings") {
-    returnedPage = <Settings setPage={setPage} user={user} setUser={setUser} />;
+    returnedPage = (
+      <Settings
+        setPage={setPage}
+        user={user}
+        setUser={setUser}
+        stylesheet={stylesheet}
+      />
+    );
   } else {
     returnedPage = <div> There has been an error with page routing</div>;
   }
