@@ -1,4 +1,4 @@
-import "./App.css";
+//components
 import { useState } from "react";
 import { Entrance } from "./components/Entrance";
 import { Welcome } from "./components/Welcome";
@@ -6,7 +6,10 @@ import { Dashboard } from "./components/Dashboard";
 import DiaryForm from "./components/diary/DiaryForm";
 import { Navigation } from "./components/Navigation";
 import { Settings } from "./components/Settings";
-import logo from "./images/logo/icon.png";
+
+//styles
+import "./App.css";
+const { junglestyle } = require("./styles/jungleStyle");
 
 function App() {
   //states
@@ -18,6 +21,7 @@ function App() {
   // as sub-components. Each page recieves "setPage" as a prop so that
   // navigation will work.
   let returnedPage = undefined;
+  let stylesheet = junglestyle;
 
   if (!user.hasOwnProperty("username")) {
     return <Entrance page={setPage} user={user} setUser={setUser} />;
@@ -34,10 +38,10 @@ function App() {
   } else {
     returnedPage = <div> There has been an error with page routing</div>;
   }
-
+  console.log(stylesheet.app);
   return (
-    <div id="AppContainer">
-      <Navigation setPage={setPage} />
+    <div style={stylesheet.app}>
+      <Navigation setPage={setPage} stylesheet={stylesheet} />
       {returnedPage}
     </div>
   );

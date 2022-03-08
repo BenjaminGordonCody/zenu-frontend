@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { fetchRequestAddJournalEntry } from "../../utils";
+import "../../styles/diary.css";
 
 export default function DiaryForm({ user }) {
   const [title, setTitle] = useState("");
@@ -23,7 +24,7 @@ export default function DiaryForm({ user }) {
   };
 
   return (
-    <div>
+    <div className="page">
       <form onSubmit={onSubmit}>
         <div className="diary-form">
           <input

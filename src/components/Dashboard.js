@@ -12,7 +12,7 @@ const blankDailyTasksRecord = () => {
   return tempObj;
 };
 
-export const Dashboard = ({ user, setPage, setUser }) => {
+export const Dashboard = ({ user, setPage, setUser, stylesheet }) => {
   console.log("in props", user.taskTally);
   console.log("jsonparse", JSON.parse(user.taskTally));
   let totalTaskRecord = JSON.parse(user.taskTally);
