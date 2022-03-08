@@ -1,4 +1,3 @@
-import "../styles/navigation.css";
 const logo = require("../images/logo/dirty-text300px.png");
 
 export const Navigation = ({ setPage }) => {
