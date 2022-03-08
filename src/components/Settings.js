@@ -1,6 +1,6 @@
-export const Settings = ({ setUser }) => {
+export const Settings = ({ setUser, stylesheet }) => {
   return (
-    <div className="page" id="settings">
+    <div style={stylesheet.page}>
       <h1>User Settings</h1>
       <button
         onClick={() => {

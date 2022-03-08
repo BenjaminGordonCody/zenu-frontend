@@ -1,18 +1,20 @@
 import { notDependencies } from "mathjs";
-import bckground from "../images/jungle.jpg";
+import backgroundImage from "../images/jungle.jpg";
 import navigatorBackground from "../images/navigationBackgroundWhite.png";
 const logo = require("../images/logo/greytexture1k.png");
 
 const text = "darkGreen";
 const background = "white";
-const transparentBackground = "rgba(255,255,255,0.8";
+const transparentBackground = "rgba(255,255,255,0.9";
+const almostClearBackground = "rgba(255,255,255,0.2";
+
 export const junglestyle = {
   logo: {
     src: logo,
     style: { height: "30vh" },
   },
   app: {
-    backgroundImage: `url(${bckground})`,
+    backgroundImage: `url(${backgroundImage})`,
     backgroundSize: "cover",
     padding: "25px",
     color: "darkGreen",
@@ -26,7 +28,11 @@ export const junglestyle = {
     position: "relative",
     top: "40vh",
     backgroundColor: transparentBackground,
-    border: "10px solid white",
+    zIndex: "1",
+    margin: "5vw",
+    paddingLeft: "5vw",
+    paddingRight: "5vw",
+    paddingTop: "2vw",
   },
   button: {
     margin: "15px",
@@ -43,15 +49,17 @@ export const junglestyle = {
     left: "0px",
     right: "0px",
     top: "0px",
+    zIndex: "2",
     display: "flex",
+    alignItems: "start",
     // border: "solid 3px red",
     link: {
-      transform: "rotate(-25deg",
+      transform: "rotate(-15deg",
       color: text,
-      fontSize: "200%",
+      fontSize: "150%",
       height: "15vh",
-      margin: "5vh",
-      backgroundColor: background,
+      margin: "5vw",
+      backgroundColor: transparentBackground,
       border: "none",
       fontFamily: '"Sofia",sans-serif',
     },
