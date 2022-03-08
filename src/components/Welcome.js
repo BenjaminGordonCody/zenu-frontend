@@ -4,7 +4,7 @@ export const Welcome = () => {
       <h1> Welcome </h1>
       <div className="options">
         <h2> Wellness plan </h2>
-        <h2> Journal </h2>
+        <h2> Diary </h2>
       </div>
     </div>
   );
