@@ -9,11 +9,13 @@ export const SignUp = ({
   password,
   setPassword,
   setUser,
+  setPage
 }) => {
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        // setPage("wellplan");
         submitSignUpHandler(e, setUser, username, email, password);
       }}
     >

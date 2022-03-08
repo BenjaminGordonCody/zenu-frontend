@@ -2,6 +2,7 @@ export const Navigation = ({ setPage }) => {
   const locations = {
     Dashboard: "dashboard",
     Diary: "diary",
+    "Task Picker": "wellplan",
     "User Settings": "settings",
   };
   return (

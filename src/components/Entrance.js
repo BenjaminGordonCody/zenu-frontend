@@ -26,6 +26,7 @@ export const Entrance = ({ setPage, setUser }) => {
         password={password}
         setPassword={setPassword}
         setUser={setUser}
+        setPage={setPage}
       />
     </div>
   );
