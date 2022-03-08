@@ -6,6 +6,7 @@ import { Dashboard } from "./components/Dashboard";
 import DiaryForm from "./components/diary/DiaryForm";
 import { Navigation } from "./components/Navigation";
 import { Settings } from "./components/Settings";
+import logo from "./images/logo/icon.png";
 
 function App() {
   //states
