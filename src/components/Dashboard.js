@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { fetchRequestUpdateTaskTally } from "../utils";
 import { Task } from "./Task";
+import { Tally } from "./TaskTally";
 const taskDescriptions = require("../allTasks");
 
-const blankDailyTaskRecord = () => {
+const blankDailyTasksRecord = () => {
   let tempObj = {};
   Object.keys(taskDescriptions).forEach((task) => {
     tempObj[task] = false;
@@ -10,34 +12,42 @@ const blankDailyTaskRecord = () => {
   return tempObj;
 };
 
-export const Dashboard = ({ user, setPage }) => {
+export const Dashboard = ({ user, setPage, setUser }) => {
+  console.log("in props", user.taskTally);
+  console.log("jsonparse", JSON.parse(user.taskTally));
+  let totalTaskRecord = JSON.parse(user.taskTally);
+
   //states
   const [dailyTaskRecord, setDailyTaskRecord] = useState(
-    blankDailyTaskRecord()
+    blankDailyTasksRecord()
   );
-  const [totalTaskRecord, setTotalTaskRecord] = useState(
-    JSON.parse(user.taskTally)
-  );
+
+  console.log("ttr", totalTaskRecord);
 
   //update utils
   const updateDailyTaskRecord = (key, value) => {
+    console.log("updateDailyTaskRecord recieves", key, value);
     const temp = { ...dailyTaskRecord };
+    console.log("temp obj", temp);
     temp[key] = value;
+    console.log("updated temp obj", temp);
     setDailyTaskRecord(temp);
   };
 
   const newTaskRecordForDatabase = () => {
     let newTaskRecord = { ...totalTaskRecord };
+    console.log("totalTaskRecord", totalTaskRecord);
     Object.keys(dailyTaskRecord).forEach((task) => {
       if (dailyTaskRecord[task] && newTaskRecord.hasOwnProperty(task)) {
         newTaskRecord[task] += 1;
       } else if (dailyTaskRecord[task]) {
         newTaskRecord[task] = 1;
+      } else {
       }
     });
-    console.log(newTaskRecord);
-
-    // THIS IS WHERE TO ADD THE LINK TO THE DATABASE, PUT FUNC IN UTILS
+    console.log("totalTaskRecord", totalTaskRecord);
+    console.log("sent to FetchRequest", newTaskRecord);
+    fetchRequestUpdateTaskTally(user.username, newTaskRecord, setUser);
   };
 
   return (
@@ -58,7 +68,9 @@ export const Dashboard = ({ user, setPage }) => {
           );
         })}
       </div>
-      <div id="dashboardTallyContainer"></div>
+      <div id="dashboardTallyContainer">
+        <Tally user={user} />
+      </div>
     </div>
   );
 };
