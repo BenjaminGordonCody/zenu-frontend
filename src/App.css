@@ -1,6 +1,19 @@
+body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
 .welcome {
   background-image: url("/src/images/jungle.jpg");
 }
+
 .App {
   text-align: center;
 }
@@ -15,11 +28,6 @@
   width: 400px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-
 .diary-input {
   padding: 14px 32px 14px 16px;
   margin-right: 10px;
@@ -29,7 +37,6 @@
   outline: none;
   width: 400px;
   box-shadow: 0px 10px 15px 15px rgba(0, 0, 0, 0.1);
-
 }
 
 .diary-date-input {
@@ -91,4 +98,10 @@
 
 .taskButton-true {
   background-color: red;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
