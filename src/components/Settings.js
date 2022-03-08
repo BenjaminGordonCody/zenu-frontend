@@ -10,6 +10,13 @@ export const Settings = ({ setUser }) => {
       >
         Log Out
       </button>
+      <button
+        onClick={() => {
+          console.log("user deletes account");
+        }}
+      >
+        Delete Account
+      </button>
     </div>
   );
 };
