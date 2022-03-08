@@ -9,7 +9,8 @@ import { Settings } from "./components/Settings";
 
 //styles
 import "./App.css";
-const { junglestyle } = require("./styles/jungleStyle");
+const { junglestyle: jungleStyle } = require("./styles/jungleStyle");
+const { cityStyle } = require("./styles/cityStyle");
 
 function App() {
   //states
@@ -21,7 +22,20 @@ function App() {
   // as sub-components. Each page recieves "setPage" as a prop so that
   // navigation will work.
   let returnedPage = undefined;
-  let stylesheet = junglestyle;
+
+  //switch for variable styling
+  let stylesheet;
+
+  switch (theme) {
+    case "jungle":
+      stylesheet = jungleStyle;
+      break;
+    case "city":
+      stylesheet = cityStyle;
+      break;
+    default:
+      break;
+  }
 
   if (!user.hasOwnProperty("username")) {
     return <Entrance page={setPage} user={user} setUser={setUser} />;
@@ -54,7 +68,6 @@ function App() {
   } else {
     returnedPage = <div> There has been an error with page routing</div>;
   }
-  console.log(stylesheet.app);
   return (
     <div style={stylesheet.app}>
       <Navigation setPage={setPage} stylesheet={stylesheet} />

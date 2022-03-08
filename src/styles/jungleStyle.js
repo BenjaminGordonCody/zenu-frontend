@@ -6,12 +6,12 @@ const logo = require("../images/logo/greytexture1k.png");
 const text = "darkGreen";
 const background = "white";
 const transparentBackground = "rgba(255,255,255,0.9";
-const almostClearBackground = "rgba(255,255,255,0.2";
+const almostClearBackground = "rgba(255,255,255,0.1";
 
 export const junglestyle = {
   logo: {
     src: logo,
-    style: { height: "30vh" },
+    style: { height: "20vh", padding: "15px" },
   },
   app: {
     backgroundImage: `url(${backgroundImage})`,
@@ -26,13 +26,14 @@ export const junglestyle = {
   },
   page: {
     position: "relative",
-    top: "40vh",
+    top: "25vh",
     backgroundColor: transparentBackground,
     zIndex: "1",
     margin: "5vw",
     paddingLeft: "5vw",
     paddingRight: "5vw",
     paddingTop: "2vw",
+    borderRadius: "15px",
   },
   button: {
     margin: "15px",
@@ -56,10 +57,10 @@ export const junglestyle = {
     link: {
       transform: "rotate(-15deg",
       color: text,
-      fontSize: "150%",
+      fontSize: "xxx-large",
       height: "15vh",
-      margin: "5vw",
-      backgroundColor: transparentBackground,
+      margin: "15px",
+      backgroundColor: almostClearBackground,
       border: "none",
       fontFamily: '"Sofia",sans-serif',
     },
