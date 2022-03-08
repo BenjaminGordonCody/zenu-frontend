@@ -22,7 +22,9 @@ function App() {
   } else if (page === "welcome") {
     returnedPage = <Welcome setPage={setPage} user={user} />;
   } else if (page === "dashboard") {
-    return <Dashboard setPage={setPage} user={user} setUser={setUser} />;
+    returnedPage = (
+      <Dashboard setPage={setPage} user={user} setUser={setUser} />
+    );
   } else if (page === "diary") {
     returnedPage = <DiaryForm setPage={setPage} user={user} />;
   } else if (page === "settings") {
