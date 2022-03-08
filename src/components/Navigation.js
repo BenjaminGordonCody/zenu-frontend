@@ -2,7 +2,7 @@ export const Navigation = ({ setPage }) => {
   const locations = {
     Dashboard: "dashboard",
     Diary: "diary",
-    "User Settings": "user",
+    "User Settings": "settings",
   };
   return (
     <div id="Navigation">
