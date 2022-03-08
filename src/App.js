@@ -12,6 +12,7 @@ function App() {
   //states
   const [page, setPage] = useState("welcome");
   const [user, setUser] = useState(false);
+  const [theme, setTheme] = useState("jungle");
 
   //based on what page variable is, the main App component loads other pages
   // as sub-components. Each page recieves "setPage" as a prop so that
