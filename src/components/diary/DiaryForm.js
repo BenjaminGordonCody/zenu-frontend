@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { fetchRequestAddJournalEntry } from '../../utils'
+import { dateConversion } from '../../utils/dateConversion'
 
-export default function DiaryForm() {
+
+export default function DiaryForm({ user }) {
   const [title, setTitle] = useState("")
   const [date, setDate] = useState("")
   const [text, setText] = useState("")
@@ -10,14 +12,16 @@ export default function DiaryForm() {
     event.preventDefault()
     let itemObject = {
       title: title,
-      date: date,
-      text: text
+      date: new Date(date),
+      text: text,
+      username: user.username,
     }
+    // console.log(itemObject);
     fetchRequestAddJournalEntry(itemObject);
     // addItem(itemObject)
-    setTitle("")
-    setText("")
-    setDate("")
+    // setTitle("")
+    // setDate("")
+    // setText("")
   }
 
   return (
