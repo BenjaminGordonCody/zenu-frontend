@@ -5,6 +5,7 @@ import { Welcome } from "./components/Welcome";
 import { Dashboard } from "./components/Dashboard";
 import DiaryForm from "./components/diary/DiaryForm";
 import { Navigation } from "./components/Navigation";
+import { Settings } from "./components/Settings";
 
 function App() {
   //states
@@ -17,13 +18,15 @@ function App() {
   let returnedPage = undefined;
 
   if (!user.hasOwnProperty("username")) {
-    returnedPage = <Entrance page={setPage} user={user} setUser={setUser} />;
+    return <Entrance page={setPage} user={user} setUser={setUser} />;
   } else if (page === "welcome") {
     returnedPage = <Welcome setPage={setPage} user={user} />;
   } else if (page === "dashboard") {
     return <Dashboard setPage={setPage} user={user} setUser={setUser} />;
   } else if (page === "diary") {
     returnedPage = <DiaryForm setPage={setPage} user={user} />;
+  } else if (page === "settings") {
+    returnedPage = <Settings setPage={setPage} user={user} setUser={setUser} />;
   } else {
     returnedPage = <div> There has been an error with page routing</div>;
   }
