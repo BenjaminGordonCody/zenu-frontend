@@ -17,7 +17,7 @@ function App() {
   let returnedPage = undefined;
 
   if (!user.hasOwnProperty("username")) {
-    returnedPage = <Entrance page={setPage} user={user} setUser={setUser} />;
+    return <Entrance page={setPage} user={user} setUser={setUser} />;
   } else if (page === "welcome") {
     returnedPage = <Welcome setPage={setPage} user={user} />;
   } else if (page === "dashboard") {
