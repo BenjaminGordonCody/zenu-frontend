@@ -1,3 +1,6 @@
+import "../styles/navigation.css";
+const logo = require("../images/logo/dirty-text300px.png");
+
 export const Navigation = ({ setPage }) => {
   const locations = {
     Dashboard: "dashboard",
@@ -5,7 +8,8 @@ export const Navigation = ({ setPage }) => {
     "User Settings": "settings",
   };
   return (
-    <div id="Navigation">
+    <div id="navigation">
+      <img src={logo} />
       {Object.keys(locations).map((key) => {
         return (
           <button
