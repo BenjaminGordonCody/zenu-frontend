@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { fetchRequestAddJournalEntry } from "../../utils";
+import "../../styles/diary.css";
 
-export default function DiaryForm({ user }) {
+export default function DiaryForm({ user, stylesheet }) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [text, setText] = useState("");
@@ -10,11 +11,10 @@ export default function DiaryForm({ user }) {
     event.preventDefault();
     let itemObject = {
       title: title,
-      date: "01-06-1987", //new Date(date),
+      date: new Date(date),
       text: text,
       username: user.username,
     };
-    console.log(itemObject);
     fetchRequestAddJournalEntry(itemObject);
     // addItem(itemObject)
     // setTitle("")
@@ -23,7 +23,7 @@ export default function DiaryForm({ user }) {
   };
 
   return (
-    <div>
+    <div style={stylesheet.page}>
       <form onSubmit={onSubmit}>
         <div className="diary-form">
           <input

@@ -95,7 +95,7 @@ export const fetchRequestAddJournalEntry = async (journalObj) => {
     const response = await fetch(`${process.env.REACT_APP_REST_API}journal`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: journalObj,
+      body: JSON.stringify({ journalObj }),
     });
     const data = await response.json();
     console.log(data);

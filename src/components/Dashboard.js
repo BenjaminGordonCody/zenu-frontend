@@ -1,9 +1,14 @@
+//styles
+import "../styles/dashboard.css";
+
+//components
 import { useState } from "react";
 import { fetchRequestUpdateTaskTally } from "../utils";
 import { Task } from "./Task";
 import { Tally } from "./TaskTally";
 const taskDescriptions = require("../allTasks");
 
+//utils
 const blankDailyTasksRecord = () => {
   let tempObj = {};
   Object.keys(taskDescriptions).forEach((task) => {
@@ -12,7 +17,7 @@ const blankDailyTasksRecord = () => {
   return tempObj;
 };
 
-export const Dashboard = ({ user, setPage, setUser }) => {
+export const Dashboard = ({ user, setPage, setUser, stylesheet }) => {
   console.log("in props", user.taskTally);
   console.log("jsonparse", JSON.parse(user.taskTally));
   let totalTaskRecord = JSON.parse(user.taskTally);
@@ -36,7 +41,6 @@ export const Dashboard = ({ user, setPage, setUser }) => {
 
   const newTaskRecordForDatabase = () => {
     let newTaskRecord = { ...totalTaskRecord };
-    console.log("totalTaskRecord", totalTaskRecord);
     Object.keys(dailyTaskRecord).forEach((task) => {
       if (dailyTaskRecord[task] && newTaskRecord.hasOwnProperty(task)) {
         newTaskRecord[task] += 1;
@@ -45,28 +49,29 @@ export const Dashboard = ({ user, setPage, setUser }) => {
       } else {
       }
     });
-    console.log("totalTaskRecord", totalTaskRecord);
-    console.log("sent to FetchRequest", newTaskRecord);
     fetchRequestUpdateTaskTally(user.username, newTaskRecord, setUser);
   };
 
   return (
-    <div id="dashboard" className="page">
+    <div id="dashboard" style={stylesheet.page}>
       <div id="dashboardTaskContainer">
-        <button id="submitDailyTasks" onClick={newTaskRecordForDatabase}>
-          submit
-        </button>
-        {Object.keys(taskDescriptions).map((task, index) => {
-          return (
-            <Task
-              task={taskDescriptions[task]}
-              taskTag={task}
-              index={index}
-              dailyTaskRecord={dailyTaskRecord}
-              updateDailyTaskRecord={updateDailyTaskRecord}
-            />
-          );
-        })}
+        <div id="dashboardTaskButtons">
+          <button id="submitDailyTasks" onClick={newTaskRecordForDatabase}>
+            submit
+          </button>
+          {Object.keys(totalTaskRecord).map((task, index) => {
+            return (
+              <Task
+                task={taskDescriptions[task]}
+                taskTag={task}
+                index={index}
+                dailyTaskRecord={dailyTaskRecord}
+                updateDailyTaskRecord={updateDailyTaskRecord}
+                stylesheet={stylesheet}
+              />
+            );
+          })}
+        </div>
       </div>
       <div id="dashboardTallyContainer">
         <Tally user={user} />
