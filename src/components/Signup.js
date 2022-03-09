@@ -1,21 +1,31 @@
 import { Input } from "./Input";
 import { submitSignUpHandler } from "../utils";
 
-export const SignUp = ({ p }) => {
+export const SignUp = ({
+  email,
+  setEmail,
+  username,
+  setUsername,
+  password,
+  setPassword,
+  setUser,
+  setPage
+}) => {
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        submitSignUpHandler(e, p.setUser, p.username, p.email, p.password);
+        // setPage("wellplan");
+        submitSignUpHandler(e, setUser, username, email, password);
       }}
     >
       <h1>Sign up!</h1>
       Username:
-      <Input setter={p.setUsername} />
+      <Input setter={setUsername} />
       Email:
-      <Input setter={p.setEmail} />
+      <Input setter={setEmail} />
       Password:
-      <Input setter={p.setPassword} />
+      <Input setter={setPassword} />
       <button type="submit">sign up</button>
     </form>
   );

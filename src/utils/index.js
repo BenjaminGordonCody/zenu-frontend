@@ -4,7 +4,9 @@ export const fetchRequestSignUp = async (
   email,
   password
 ) => {
+  console.log(`${process.env.REACT_APP_REST_API}user`);
   try {
+    const taskTally = "{}";
     const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -12,6 +14,7 @@ export const fetchRequestSignUp = async (
         username,
         email,
         password,
+        taskTally,
       }),
     });
     const data = await response.json();
@@ -22,7 +25,7 @@ export const fetchRequestSignUp = async (
 };
 
 export const fetchRequestLogIn = async (setUser, username, password) => {
-  console.log(username);
+  console.log(username, password);
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
       method: "POST",
@@ -57,14 +60,25 @@ export const fetchRequestDeleteUser = async (user, setUser) => {
     console.log(error.message);
   }
 };
-export const fetchPicsum = async (num, setPicArr) => {
-  const response = await fetch(
-    `https://picsum.photos/v2/list?page=${num}&limit=15`
-  );
-  const data = await response.json();
-  setPicArr(data);
-};
 
+export const fetchRequestUpdateTaskTally = async (
+  username,
+  newTaskTally,
+  setUser
+) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_REST_API}tally`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: username, newTaskTally }),
+    });
+    const data = await response.json();
+    console.log("sent to set User", data.updatedUser);
+    setUser(data.updatedUser);
+  } catch (error) {
+    console.log("fetchRequestUpdateTaskTally", error.message);
+  }
+};
 export const submitSignUpHandler = (e, setUser, username, email, password) => {
   e.preventDefault();
   fetchRequestSignUp(setUser, username, email, password);
@@ -73,4 +87,19 @@ export const submitSignUpHandler = (e, setUser, username, email, password) => {
 export const submitLogInHandler = (e, setUser, username, password) => {
   e.preventDefault();
   fetchRequestLogIn(setUser, username, password);
+};
+
+export const fetchRequestAddJournalEntry = async (journalObj) => {
+  console.log("fetch request recieves:", journalObj);
+  try {
+    const response = await fetch(`${process.env.REACT_APP_REST_API}journal`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ journalObj }),
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
 };

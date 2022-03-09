@@ -1,9 +1,15 @@
-import React from 'react';
-import taskDescriptions from '../allTasks/index';
+
 import { useEffect, useState } from 'react';
+import React from "react";
+const taskDescriptions = require("../allTasks/index");
 
+export const WellnessPlan = ({ setPage, user, stylesheet }) => {
+  const handleClick = (e) => {
+    //alert("Added to your plan!")
+    console.log(e.key.value);
+  };
 
-export const WellnessPlan = () => {
+export const WellnessPlan = ({stylesheet}) => {
     const tempTaskObject = { }
     Object.keys(taskDescriptions).map(
      (key) => {
@@ -19,20 +25,10 @@ export const WellnessPlan = () => {
         console.log(task)
         }
     
-    
-        
-          
-    
-    
-
-   
-    
-
     return(
-        <section>
-            <div>
+        
+            <div style={stylesheet.page}>
                 <h1>Wellbeing Ideas</h1>
-                <p className="list">
                 {Object.keys(taskDescriptions).map((task, index) => {
                     
         return <button key={index} onClick={()=>handleClick(taskDescriptions[task]["string"])}> {taskDescriptions[task]["string"]} </button>;
@@ -40,19 +36,9 @@ export const WellnessPlan = () => {
         
       
       })}
-                </p>
-            </div>
-            <div className="picked">
-                
-                    <h2>Activities</h2>
-                    <p>
-                    
-                   
-                    
-                    
-                </p>
-            </div>
-        </section>
+               
+    </div>
     );
 
-}
+
+}}
