@@ -1,4 +1,3 @@
-import { notDependencies } from "mathjs";
 import backgroundImage from "../images/jungle.jpg";
 import navigatorBackground from "../images/navigationBackgroundWhite.png";
 const logo = require("../images/logo/greytexture1k.png");
