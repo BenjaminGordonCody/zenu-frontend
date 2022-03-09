@@ -1,9 +1,14 @@
+//styles
+import "../styles/dashboard.css";
+
+//components
 import { useState } from "react";
 import { fetchRequestUpdateTaskTally } from "../utils";
 import { Task } from "./Task";
 import { Tally } from "./TaskTally";
 const taskDescriptions = require("../allTasks");
 
+//utils
 const blankDailyTasksRecord = () => {
   let tempObj = {};
   Object.keys(taskDescriptions).forEach((task) => {
@@ -53,20 +58,22 @@ export const Dashboard = ({ user, setPage, setUser, stylesheet }) => {
   return (
     <div id="dashboard" style={stylesheet.page}>
       <div id="dashboardTaskContainer">
-        <button id="submitDailyTasks" onClick={newTaskRecordForDatabase}>
-          submit
-        </button>
-        {Object.keys(taskDescriptions).map((task, index) => {
-          return (
-            <Task
-              task={taskDescriptions[task]}
-              taskTag={task}
-              index={index}
-              dailyTaskRecord={dailyTaskRecord}
-              updateDailyTaskRecord={updateDailyTaskRecord}
-            />
-          );
-        })}
+        <div id="dashboardTaskButtons">
+          <button id="submitDailyTasks" onClick={newTaskRecordForDatabase}>
+            submit
+          </button>
+          {Object.keys(taskDescriptions).map((task, index) => {
+            return (
+              <Task
+                task={taskDescriptions[task]}
+                taskTag={task}
+                index={index}
+                dailyTaskRecord={dailyTaskRecord}
+                updateDailyTaskRecord={updateDailyTaskRecord}
+              />
+            );
+          })}
+        </div>
       </div>
       <div id="dashboardTallyContainer">
         <Tally user={user} />
