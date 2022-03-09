@@ -13,6 +13,7 @@ export const Login = ({
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          console.log(username, password, "login");
           submitLogInHandler(e, setUser, username, password);
         }}
       >

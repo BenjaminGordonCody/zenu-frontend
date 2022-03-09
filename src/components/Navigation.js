@@ -1,8 +1,9 @@
 export const Navigation = ({ setPage, stylesheet }) => {
   const locations = {
+    "Task Picker": "wellplan",
     Dashboard: "dashboard",
     Diary: "diary",
-    "Task Picker": "wellplan",
+    Archive: "archive",
     "User Settings": "settings",
   };
   console.log(stylesheet.navigation);
