@@ -3,13 +3,8 @@ import { useEffect, useState } from 'react';
 import React from "react";
 const taskDescriptions = require("../allTasks/index");
 
-export const WellnessPlan = ({ setPage, user, stylesheet }) => {
-  const handleClick = (e) => {
-    //alert("Added to your plan!")
-    console.log(e.key.value);
-  };
 
-export const WellnessPlan = ({stylesheet}) => {
+export const WellnessPlan = ({setPage, user, stylesheet}) => {
     const tempTaskObject = { }
     Object.keys(taskDescriptions).map(
      (key) => {
@@ -41,4 +36,4 @@ export const WellnessPlan = ({stylesheet}) => {
     );
 
 
-}}
+}
