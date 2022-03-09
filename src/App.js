@@ -41,7 +41,9 @@ function App() {
   if (!user.hasOwnProperty("username")) {
     return <Entrance page={setPage} user={user} setUser={setUser} />;
   } else if (page === "wellplan") {
-    returnedPage = <WellnessPlan setPage={setPage} user={user} />
+    returnedPage = (
+      <WellnessPlan setPage={setPage} user={user} stylesheet={stylesheet} />
+    );
   } else if (page === "welcome") {
     returnedPage = (
       <Welcome setPage={setPage} user={user} stylesheet={stylesheet} />
