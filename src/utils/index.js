@@ -103,3 +103,22 @@ export const fetchRequestAddJournalEntry = async (journalObj) => {
     console.log(error);
   }
 };
+
+export const fetchRequestAllJournalEntries = async (username) => {
+  try {
+    //   const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({
+    //       username,
+    //       password,
+    //     }),
+    //   });
+    //   console.log(response);
+    //   const data = await response.json();
+    //   console.log(data);
+    //   setUser(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
