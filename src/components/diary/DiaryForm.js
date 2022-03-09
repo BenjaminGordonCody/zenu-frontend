@@ -11,11 +11,10 @@ export default function DiaryForm({ user, stylesheet }) {
     event.preventDefault();
     let itemObject = {
       title: title,
-      date: "01-06-1987", //new Date(date),
+      date: new Date(date),
       text: text,
       username: user.username,
     };
-    console.log(itemObject);
     fetchRequestAddJournalEntry(itemObject);
     // addItem(itemObject)
     // setTitle("")
