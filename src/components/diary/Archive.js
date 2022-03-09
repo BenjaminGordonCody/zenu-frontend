@@ -4,8 +4,8 @@ import { fetchRequestAllJournalEntries } from "../../utils";
 export const Archive = ({ user, stylesheet }) => {
   const [entries, setEntries] = useState(
     fetchRequestAllJournalEntries(user.username)
-  );
-  console.log(entries);
+  ); //this loops forever, change it to use useEffect
+
   return (
     <div style={stylesheet.page}>
       <h1>Archive</h1>
