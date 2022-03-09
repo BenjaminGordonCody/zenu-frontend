@@ -6,6 +6,7 @@ import { Dashboard } from "./components/Dashboard";
 import DiaryForm from "./components/diary/DiaryForm";
 import { Navigation } from "./components/Navigation";
 import { Settings } from "./components/Settings";
+import { WellnessPlan } from "./components/WellPlan";
 
 //styles
 import "./App.css";
@@ -39,6 +40,8 @@ function App() {
 
   if (!user.hasOwnProperty("username")) {
     return <Entrance page={setPage} user={user} setUser={setUser} />;
+  } else if (page === "wellplan") {
+    returnedPage = <WellnessPlan setPage={setPage} user={user} />
   } else if (page === "welcome") {
     returnedPage = (
       <Welcome setPage={setPage} user={user} stylesheet={stylesheet} />
