@@ -1,24 +1,44 @@
 import React from 'react';
-const taskDescriptions = require('../allTasks/index');
+import taskDescriptions from '../allTasks/index';
+import { useEffect, useState } from 'react';
 
 
 export const WellnessPlan = () => {
+    const tempTaskObject = { }
+    Object.keys(taskDescriptions).map(
+     (key) => {
+         tempTaskObject[key] = false
+     }
+    )
+     console.log(tempTaskObject)
+
+    const [clicked, setClicked] = useState(false)
     
-    const handleClick = e => {
+    const handleClick = (task) => {
         //alert("Added to your plan!")
-        console.log(e.key.value)
+        console.log(task)
         }
     
+    
+        
+          
+    
+    
+
+   
     
 
     return(
         <section>
             <div>
                 <h1>Wellbeing Ideas</h1>
-                <p classname="list">
+                <p className="list">
                 {Object.keys(taskDescriptions).map((task, index) => {
                     
-        return <button onClick={handleClick}> {taskDescriptions[task]["string"]} </button>;
+        return <button key={index} onClick={()=>handleClick(taskDescriptions[task]["string"])}> {taskDescriptions[task]["string"]} </button>;
+      
+        
+      
       })}
                 </p>
             </div>
@@ -26,14 +46,13 @@ export const WellnessPlan = () => {
                 
                     <h2>Activities</h2>
                     <p>
-
+                    
                    
-                    {Object.keys(taskDescription)}
+                    
                     
                 </p>
             </div>
         </section>
     );
 
-    }
-
+}
