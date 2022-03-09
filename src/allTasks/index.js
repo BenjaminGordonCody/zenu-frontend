@@ -1,4 +1,5 @@
 const taskDescriptions = {
+
   deepBreath: {
     string: "Breathe deeply for 5 mins",
     emoji: "🫁",
