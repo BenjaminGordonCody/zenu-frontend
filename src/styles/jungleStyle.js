@@ -65,4 +65,8 @@ export const junglestyle = {
       fontFamily: '"Sofia",sans-serif',
     },
   },
+  dashboard: {
+    selected: { backgroundColor: "darkGreen" },
+    notSelected: { backgroundColor: "white" },
+  },
 };

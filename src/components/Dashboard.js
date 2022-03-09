@@ -41,7 +41,6 @@ export const Dashboard = ({ user, setPage, setUser, stylesheet }) => {
 
   const newTaskRecordForDatabase = () => {
     let newTaskRecord = { ...totalTaskRecord };
-    console.log("totalTaskRecord", totalTaskRecord);
     Object.keys(dailyTaskRecord).forEach((task) => {
       if (dailyTaskRecord[task] && newTaskRecord.hasOwnProperty(task)) {
         newTaskRecord[task] += 1;
@@ -50,8 +49,6 @@ export const Dashboard = ({ user, setPage, setUser, stylesheet }) => {
       } else {
       }
     });
-    console.log("totalTaskRecord", totalTaskRecord);
-    console.log("sent to FetchRequest", newTaskRecord);
     fetchRequestUpdateTaskTally(user.username, newTaskRecord, setUser);
   };
 
@@ -62,7 +59,7 @@ export const Dashboard = ({ user, setPage, setUser, stylesheet }) => {
           <button id="submitDailyTasks" onClick={newTaskRecordForDatabase}>
             submit
           </button>
-          {Object.keys(taskDescriptions).map((task, index) => {
+          {Object.keys(totalTaskRecord).map((task, index) => {
             return (
               <Task
                 task={taskDescriptions[task]}
@@ -70,6 +67,7 @@ export const Dashboard = ({ user, setPage, setUser, stylesheet }) => {
                 index={index}
                 dailyTaskRecord={dailyTaskRecord}
                 updateDailyTaskRecord={updateDailyTaskRecord}
+                stylesheet={stylesheet}
               />
             );
           })}

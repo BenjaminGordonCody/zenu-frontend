@@ -1,12 +1,23 @@
 import { useState } from "react";
 
-export const Task = ({ task, index, updateDailyTaskRecord, taskTag }) => {
+export const Task = ({
+  task,
+  index,
+  updateDailyTaskRecord,
+  taskTag,
+  stylesheet,
+}) => {
   const [taskCompletion, setTaskCompletion] = useState(false);
 
   return (
     <div className="dashboardTask" key={index}>
       <button
-        className={"dashboardTaskButton status" + taskCompletion}
+        className={"dashboardTaskButton"}
+        style={
+          taskCompletion
+            ? stylesheet.dashboard.selected
+            : stylesheet.dashboard.notSelected
+        }
         onClick={() => {
           const newVal = taskCompletion ? false : true;
           setTaskCompletion(newVal); //component's state, for styling
