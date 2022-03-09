@@ -1,3 +1,5 @@
+import React from 'react'
+
 export const Navigation = ({ setPage, stylesheet }) => {
   const locations = {
     "Task Picker": "wellplan",
