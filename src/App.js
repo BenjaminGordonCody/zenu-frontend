@@ -10,6 +10,7 @@ import { WellnessPlan } from "./components/WellPlan";
 
 //styles
 import "./App.css";
+import { Archive } from "./components/diary/Archive";
 const { junglestyle: jungleStyle } = require("./styles/jungleStyle");
 const { cityStyle } = require("./styles/cityStyle");
 
@@ -70,6 +71,8 @@ function App() {
         stylesheet={stylesheet}
       />
     );
+  } else if (page === "archive") {
+    returnedPage = <Archive user={user} stylesheet={stylesheet} />;
   } else {
     returnedPage = <div> There has been an error with page routing</div>;
   }
