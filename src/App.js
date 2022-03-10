@@ -43,7 +43,12 @@ function App() {
     return <Entrance page={setPage} user={user} setUser={setUser} />;
   } else if (page === "wellplan") {
     returnedPage = (
-      <WellnessPlan setPage={setPage} user={user} stylesheet={stylesheet} />
+      <WellnessPlan
+        setPage={setPage}
+        user={user}
+        setUser={setUser}
+        stylesheet={stylesheet}
+      />
     );
   } else if (page === "welcome") {
     returnedPage = (
