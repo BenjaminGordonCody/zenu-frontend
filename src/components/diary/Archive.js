@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchRequestAllJournalEntries } from "../../utils";
+import { Entry } from "./Entry";
 
 export const Archive = ({ user, stylesheet }) => {
   const [entries, setEntries] = useState(false);
@@ -13,7 +14,7 @@ export const Archive = ({ user, stylesheet }) => {
       <h1>Archive</h1>
       {entries
         ? entries.map((entry) => {
-            console.log(entry);
+            return <Entry post={entry} />;
           })
         : ""}
     </div>
