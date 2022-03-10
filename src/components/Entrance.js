@@ -10,6 +10,7 @@ export const Entrance = ({ setPage, setUser }) => {
   const [password, setPassword] = useState();
   const [email, setEmail] = useState();
 
+  console.log(setUser)
   return (
     <div id="entrance" className="page">
       <div id="entranceHeader">
