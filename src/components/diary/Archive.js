@@ -7,7 +7,6 @@ export const Archive = ({ user, stylesheet }) => {
   if (entries === false) {
     fetchRequestAllJournalEntries(user.username, setEntries);
   }
-  console.log(entries);
 
   return (
     <div style={stylesheet.page}>

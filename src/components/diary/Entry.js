@@ -1,6 +1,9 @@
 import "../../styles/archive.css";
 
 export const Entry = ({ post }) => {
+  typeof post.date == "string"
+    ? (post.date = post.date.slice(0, 10))
+    : (post.date = "Undated");
   return (
     <div className="entry">
       <div className="postHeader">
