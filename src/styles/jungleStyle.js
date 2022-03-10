@@ -13,15 +13,17 @@ export const junglestyle = {
     style: { height: "20vh", padding: "15px" },
   },
   app: {
+    height: "300vh",
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: "cover",
+    backgroundAttachment: "fixed",
     padding: "25px",
     color: "darkGreen",
     position: "absolute",
     left: "0px",
     right: "0px",
     top: "0px",
-    bottom: "0px",
+    // bottom: "0px",
   },
   page: {
     position: "relative",
