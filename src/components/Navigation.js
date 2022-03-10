@@ -6,7 +6,6 @@ export const Navigation = ({ setPage, stylesheet }) => {
     Archive: "archive",
     "User Settings": "settings",
   };
-  console.log(stylesheet.navigation);
   return (
     <div id="navigation" style={stylesheet.navigation}>
       <img src={stylesheet.logo.src} style={stylesheet.logo.style} />
@@ -15,7 +14,6 @@ export const Navigation = ({ setPage, stylesheet }) => {
           <button
             style={stylesheet.navigation.link}
             onClick={() => {
-              console.log(key);
               setPage(locations[key]);
             }}
           >
