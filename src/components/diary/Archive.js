@@ -12,11 +12,13 @@ export const Archive = ({ user, stylesheet }) => {
   return (
     <div style={stylesheet.page}>
       <h1>Archive</h1>
-      {entries
-        ? entries.map((entry) => {
-            return <Entry post={entry} />;
-          })
-        : ""}
+      <div id="entries">
+        {entries
+          ? entries.map((entry) => {
+              return <Entry post={entry} />;
+            })
+          : ""}
+      </div>
     </div>
   );
 };
