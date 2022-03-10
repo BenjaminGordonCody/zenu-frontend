@@ -32,7 +32,7 @@ export default function DiaryForm({ user, stylesheet }) {
             placeholder="Add a title for today..."
             className="diary-input"
           />
-          <p>Chose a date</p>
+          <p>Choose a date</p>
           <input
             value={date}
             onChange={(event) => setDate(event.target.value)}

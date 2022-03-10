@@ -13,26 +13,31 @@ export const WellnessPlan = ({setPage, user, stylesheet}) => {
     )
      console.log(tempTaskObject)
 
-    const [clicked, setClicked] = useState(false)
+    const [clicked, setClicked] = useState(tempTaskObject)
     
-    const handleClick = (task) => {
-        //alert("Added to your plan!")
-        console.log(task)
-        }
+    const updateClicked = (key, value) => {
+        const temp = { ...clicked };
+        temp[key] = value;
+        console.log(temp)
+        setClicked(temp);
+      };
     
     return(
         
             <div style={stylesheet.page}>
-                <h1>Wellbeing Ideas</h1>
+              
+                <h1 className="ideas">Wellbeing Ideas</h1>
                 {Object.keys(taskDescriptions).map((task, index) => {
-                    
-        return <button key={index} onClick={()=>handleClick(taskDescriptions[task]["string"])}> {taskDescriptions[task]["string"]} </button>;
+                   
+        return <button className="b1" key={index} onClick={()=>updateClicked(task, !clicked[task])}> {taskDescriptions[task]["string"]} </button>;
       
         
       
       })}
                
     </div>
+    
+    
     );
 
 

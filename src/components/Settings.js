@@ -1,3 +1,5 @@
+import './WellPlan.css'
+
 export const Settings = ({ setUser, stylesheet }) => {
   return (
     <div style={stylesheet.page}>

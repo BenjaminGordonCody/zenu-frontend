@@ -1,0 +1,20 @@
+.b1 {
+    background-color:#4895ef ;
+    border: 2px solid #14ddac; width: 200px;
+    color: #48622d;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-style: bold;
+    margin: 4px 6px;
+    border-radius: 35px;
+}
+
+.ideas{
+    display:flex;justify-content: center;
+    text-indent: 1px;
+    font-weight: bold;
+    
+}
