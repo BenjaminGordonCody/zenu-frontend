@@ -31,11 +31,8 @@ export const Dashboard = ({ user, setPage, setUser, stylesheet }) => {
 
   //update utils
   const updateDailyTaskRecord = (key, value) => {
-    console.log("updateDailyTaskRecord recieves", key, value);
     const temp = { ...dailyTaskRecord };
-    console.log("temp obj", temp);
     temp[key] = value;
-    console.log("updated temp obj", temp);
     setDailyTaskRecord(temp);
   };
 
