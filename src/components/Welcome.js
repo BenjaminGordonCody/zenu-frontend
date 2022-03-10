@@ -1,11 +1,9 @@
-export const Welcome = () => {
+export const Welcome = ({ stylesheet }) => {
   return (
-    <div className="welcome">
-      <h1> Welcome </h1>
-      <div className="options">
-        <h2> Wellness plan </h2>
-        <h2> Diary </h2>
-      </div>
+    <div className="welcome" style={stylesheet.page}>
+      <h1> Welcome to Zenu!</h1>
+      <h2>What would you like to do today?</h2>
+      <div className="options">Would you like to write in your diary?</div>
     </div>
   );
 };

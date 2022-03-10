@@ -2,7 +2,8 @@ export const fetchRequestSignUp = async (
   setUser,
   username,
   email,
-  password
+  password,
+  setPage
 ) => {
   console.log(`${process.env.REACT_APP_REST_API}user`);
   try {
@@ -19,6 +20,7 @@ export const fetchRequestSignUp = async (
     });
     const data = await response.json();
     setUser(data.user);
+    setPage("wellplan");
   } catch (error) {
     console.log(error);
   }
@@ -79,9 +81,16 @@ export const fetchRequestUpdateTaskTally = async (
     console.log("fetchRequestUpdateTaskTally", error.message);
   }
 };
-export const submitSignUpHandler = (e, setUser, username, email, password) => {
+export const submitSignUpHandler = (
+  e,
+  setUser,
+  username,
+  email,
+  password,
+  setPage
+) => {
   e.preventDefault();
-  fetchRequestSignUp(setUser, username, email, password);
+  fetchRequestSignUp(setUser, username, email, password, setPage);
 };
 
 export const submitLogInHandler = (e, setUser, username, password) => {

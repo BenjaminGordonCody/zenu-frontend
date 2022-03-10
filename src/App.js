@@ -16,7 +16,7 @@ const { cityStyle } = require("./styles/cityStyle");
 
 function App() {
   //states
-  const [page, setPage] = useState("welcome");
+  const [page, setPage] = useState("diary");
   const [user, setUser] = useState(false);
   const [theme, setTheme] = useState("jungle");
 
@@ -40,7 +40,7 @@ function App() {
   }
 
   if (!user.hasOwnProperty("username")) {
-    return <Entrance page={setPage} user={user} setUser={setUser} />;
+    return <Entrance setPage={setPage} user={user} setUser={setUser} />;
   } else if (page === "wellplan") {
     returnedPage = (
       <WellnessPlan
