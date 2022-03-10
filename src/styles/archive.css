@@ -1,0 +1,21 @@
+.entry {
+  background-color: aliceblue;
+  border-radius: 15px;
+  margin: 15px;
+  padding: 15px;
+}
+
+.postTitle {
+  margin-right: 25px;
+  font-size: larger;
+  flex: 1;
+}
+
+.postDate {
+  font-size: small;
+  flex: 1;
+}
+
+.postBody {
+  font-size: medium;
+}
