@@ -105,7 +105,7 @@ export const fetchRequestAddJournalEntry = async (journalObj) => {
   }
 };
 
-export const fetchRequestAllJournalEntries = async (username) => {
+export const fetchRequestAllJournalEntries = async (username, setEntries) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}getPosts`, {
       method: "POST",
@@ -113,7 +113,8 @@ export const fetchRequestAllJournalEntries = async (username) => {
       body: JSON.stringify({ username }),
     });
     const data = await response.json();
-    return data.posts;
+    console.log(data.posts);
+    setEntries(data.posts);
   } catch (error) {
     console.log(error);
   }
